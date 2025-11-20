@@ -1,0 +1,40 @@
+<div
+  class="confirm-container"
+  role="dialog"
+  aria-labelledby="dialog-title"
+  aria-describedby="dialog-desc"
+>
+  <div class="icon-box" aria-hidden="true">
+    <mat-icon class="danger-icon" aria-hidden="true">delete_forever</mat-icon>
+  </div>
+
+  <div class="content">
+    <h2 id="dialog-title">Supprimer ce livre ?</h2>
+    <p id="dialog-desc" class="desc">
+      Voulez-vous vraiment supprimer
+      <strong class="book-title">« {{ data.title || "ce livre" }} »</strong> ?
+      Cette action est <span class="bold">irréversible</span>.
+    </p>
+
+    <div class="actions">
+      <button
+        mat-stroked-button
+        (click)="cancel()"
+        aria-label="Annuler la suppression"
+      >
+        <mat-icon>close</mat-icon>
+        Annuler
+      </button>
+
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="confirm()"
+        aria-label="Confirmer la suppression"
+      >
+        <mat-icon>delete</mat-icon>
+        Supprimer
+      </button>
+    </div>
+  </div>
+</div>

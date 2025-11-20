@@ -1,0 +1,133 @@
+<h2 class="register-title">Inscription</h2>
+
+<form #form="ngForm" (ngSubmit)="register()" class="register-form" novalidate>
+  <div class="form-content">
+    <!-- Nom -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nom</mat-label>
+      <input
+        matInput
+        [(ngModel)]="user.name"
+        name="name"
+        #nameInput="ngModel"
+        required
+      />
+      <mat-error
+        *ngIf="nameInput.invalid && (nameInput.touched || form.submitted)"
+      >
+        Ce champ est requis
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        [(ngModel)]="user.email"
+        name="email"
+        #emailInput="ngModel"
+        required
+        email
+      />
+      <mat-error
+        *ngIf="emailInput.errors?.['required'] && (emailInput.touched || form.submitted)"
+      >
+        Ce champ est requis
+      </mat-error>
+      <mat-error
+        *ngIf="emailInput.errors?.['email'] && (emailInput.touched || form.submitted)"
+      >
+        Format d'email invalide
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Mot de passe -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Mot de passe</mat-label>
+      <input
+        matInput
+        [type]="showPassword ? 'text' : 'password'"
+        [(ngModel)]="user.password"
+        name="password"
+        #passwordInput="ngModel"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="togglePasswordVisibility()"
+        tabindex="-1"
+      >
+        <mat-icon>{{
+          showPassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+
+      <mat-error
+        *ngIf="
+          passwordInput.invalid && (passwordInput.touched || form.submitted)
+        "
+      >
+        Ce champ est requis
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Confirmer mot de passe -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Confirmer mot de passe</mat-label>
+      <input
+        matInput
+        [type]="showConfirmPassword ? 'text' : 'password'"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        #confirmInput="ngModel"
+        required
+        [pattern]="user.password || ''"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="showConfirmPassword = !showConfirmPassword"
+        tabindex="-1"
+      >
+        <mat-icon>{{
+          showConfirmPassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+
+      <mat-error
+        *ngIf="confirmInput.errors?.['required'] && (confirmInput.touched || form.submitted)"
+      >
+        Ce champ est requis
+      </mat-error>
+      <mat-error
+        *ngIf="confirmInput.errors?.['pattern'] && (confirmInput.touched || form.submitted)"
+      >
+        Les mots de passe ne correspondent pas
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <!-- Actions -->
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="
+        form.invalid || confirmPassword !== user.password || isLoading
+      "
+    >
+      {{ isLoading ? "Envoi..." : "S’inscrire" }}
+    </button>
+
+    <button mat-stroked-button type="button" (click)="close()">Annuler</button>
+  </div>
+
+  <!-- Messages serveur -->
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+</form>

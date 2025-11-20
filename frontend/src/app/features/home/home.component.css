@@ -1,0 +1,14 @@
+.image-container {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement si hauteur fixe */
+  width: 100%;
+}
+
+.image-container img {
+  width: 60%; /* occupe toute la largeur */
+  max-height: 70vh; /* limite à 80% de la hauteur de l’écran */
+  object-fit: cover; /* garde l’image proportionnée */
+  border-radius: 12px; /* optionnel, arrondi joli */
+  cursor: pointer;
+}

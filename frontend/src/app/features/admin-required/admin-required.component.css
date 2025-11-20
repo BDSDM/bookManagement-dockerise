@@ -1,0 +1,51 @@
+.dialog-container {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  max-width: 500px;
+  width: 100%;
+  background: white;
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  animation: popup-fade 0.3s ease-in-out;
+}
+
+@keyframes popup-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #d32f2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icon {
+  font-size: 28px;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  min-width: 100px;
+}

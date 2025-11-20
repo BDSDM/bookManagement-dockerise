@@ -1,0 +1,78 @@
+/* Conteneur principal */
+.dashboard-container {
+  margin-top: 50px;
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: calc(100vh - 64px); /* si tu as un header fixe */
+}
+
+/* Input de recherche */
+.filter-input {
+  width: 300px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Table wrapper pour le scroll horizontal si besoin */
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Table Material */
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+/* En-têtes */
+th.mat-header-cell {
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 12px 8px;
+}
+
+/* Cellules */
+td.mat-cell {
+  padding: 10px 8px;
+  vertical-align: middle;
+}
+
+/* Boutons d'action */
+button[mat-icon-button] {
+  margin-right: 5px;
+}
+
+/* Icônes Material */
+mat-icon {
+  font-size: 20px;
+}
+
+/* Spinner de chargement */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+/* Responsive : sur petits écrans, on affiche le tableau en mode bloc */
+@media (max-width: 768px) {
+  .filter-input {
+    width: 100%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    white-space: nowrap;
+  }
+}

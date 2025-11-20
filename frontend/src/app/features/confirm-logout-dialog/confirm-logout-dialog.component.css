@@ -1,0 +1,33 @@
+.dialog-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.warning-icon {
+  font-size: 20px;
+  color: #f44336; /* Rouge pour alerter l'utilisateur */
+  margin-bottom: 10px;
+}
+
+.dialog-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.dialog-content {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 20px 0;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  min-width: 80px;
+}

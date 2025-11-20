@@ -1,0 +1,51 @@
+<div class="welcome-message">
+  <h2>
+    Bienvenue <span class="username">{{ userName }}</span> dans votre
+    bibliothèque !
+  </h2>
+  <p>
+    Découvrez nos livres disponibles. Cliquez sur un livre pour l’emprunter. 📖
+  </p>
+</div>
+
+<!-- ✅ Total global -->
+<div class="total-books">
+  <p>
+    Total d’exemplaires disponibles :
+    <span class="total-number">{{ totalBooks }}</span>
+  </p>
+</div>
+<div class="orders-button-container" *ngIf="hasOrders">
+  <button mat-raised-button color="primary" (click)="goToOrders()">
+    Mes commandes
+  </button>
+</div>
+<!-- ✅ Liste des livres -->
+<div class="books-container">
+  <mat-grid-list cols="3" gutterSize="16px" rowHeight="380px">
+    <mat-grid-tile *ngFor="let book of books">
+      <mat-card
+        class="book-card"
+        (click)="onBookClick(book)"
+        [class.unavailable]="!book.status"
+      >
+        <img
+          mat-card-image
+          [src]="book.image"
+          alt="{{ book.title }}"
+          [class.disabled]="book.total === 0"
+        />
+        <mat-card-content>
+          <h3>{{ book.title }}</h3>
+          <p class="author">Auteur : {{ book.author }}</p>
+          <p class="copies">
+            Exemplaires disponibles :
+            <span [ngClass]="{ 'no-copies': book.total === 0 }">{{
+              book.total
+            }}</span>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

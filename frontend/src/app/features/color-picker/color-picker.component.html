@@ -1,0 +1,35 @@
+<div class="color-picker">
+  <label>Choisir une couleur</label>
+  <div class="controls">
+    <input type="color" [(ngModel)]="color" />
+    <input type="text" [(ngModel)]="color" />
+    <button (click)="apply()">Appliquer</button>
+    <button (click)="addFavorite()">Ajouter aux favoris</button>
+    <button (click)="reset()">Réinitialiser</button>
+  </div>
+
+  <div class="options">
+    <label
+      ><input type="checkbox" [(ngModel)]="forceImportant" /> Forcer !important
+      (si nécessaire)</label
+    >
+  </div>
+
+  <h4>Favoris</h4>
+  <div class="favorites">
+    <div *ngFor="let c of favorites" class="fav-item">
+      <div class="swatch" [style.background]="c" (click)="useFavorite(c)"></div>
+      <div class="txt">{{ c }}</div>
+      <button (click)="removeFavorite(c)">✕</button>
+    </div>
+    <div *ngIf="favorites.length === 0">
+      Aucun favori — ajoute des couleurs !
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="clearAllFavorites()" class="danger">
+      Supprimer tous les favoris
+    </button>
+  </div>
+</div>

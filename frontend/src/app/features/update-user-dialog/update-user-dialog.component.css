@@ -1,0 +1,106 @@
+/* ====== DIALOG GLOBAL ====== */
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* espace généreux entre les champs */
+  padding: 10px 5px 20px; /* air autour du formulaire */
+  max-height: unset !important; /* évite le scroll interne */
+  overflow: hidden; /* supprime la scrollbar */
+}
+
+/* ====== FORM FIELDS ====== */
+mat-form-field.full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 4px 8px; /* un peu d’air dans le champ */
+}
+
+.mat-input-element {
+  font-size: 16px;
+}
+
+/* ====== TITRE ====== */
+h2[mat-dialog-title] {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: #1976d2;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ====== ACTIONS ====== */
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+/* ====== BOUTONS ====== */
+mat-dialog-actions button {
+  flex: 1;
+  padding: 14px 0;
+  font-size: 15px;
+  border-radius: 10px;
+  text-transform: none;
+  font-weight: 500;
+}
+
+/* --- Bouton Annuler --- */
+button[mat-button] {
+  background: #e0e0e0;
+  color: #333;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+button[mat-button]:hover {
+  background: #d6d6d6;
+  transform: translateY(-1px);
+}
+
+/* --- Bouton Enregistrer (normal) --- */
+button[mat-flat-button] {
+  background: #1976d2;
+  color: white;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* --- Bouton Enregistrer (hover actif) --- */
+button[mat-flat-button]:hover:not(:disabled) {
+  background: #125ca1;
+  transform: translateY(-1px);
+}
+
+/* --- Bouton Enregistrer (désactivé) --- */
+button[mat-flat-button][disabled] {
+  background: #b0bec5 !important; /* gris clair */
+  color: #ffffff !important;
+  cursor: not-allowed;
+  transform: none !important;
+  opacity: 0.7; /* effet visuel d'inactivité */
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+  mat-dialog-content {
+    gap: 18px;
+    padding: 8px 0 15px;
+  }
+
+  h2[mat-dialog-title] {
+    font-size: 1.3rem;
+  }
+
+  mat-dialog-actions {
+    flex-direction: column;
+  }
+
+  mat-dialog-actions button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+<nav class="navbar">
+  <div class="logo" routerLink="/thebooks">📚 BookManager</div>
+
+  <div class="navbar-buttons">
+    <ng-container *ngIf="isLoggedIn$ | async; else notLoggedIn">
+      <!-- Bouton Admin Menu -->
+      <button mat-button [matMenuTriggerFor]="adminMenu" class="nav-btn">
+        Admin
+      </button>
+
+      <mat-menu #adminMenu="matMenu" panelClass="custom-admin-menu-orange">
+        <button mat-menu-item (click)="onRedButtonClick()" class="btn-menu">
+          Activation
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/color" class="btn-menu">
+          Theme
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/books" class="btn-menu">
+          Books
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/dashboard" class="btn-menu">
+          Users
+        </button>
+      </mat-menu>
+
+      <!-- Bouton Books -->
+      <button class="nav-btn" routerLink="/thebooks">Books</button>
+
+      <!-- Bouton Logout -->
+      <button class="nav-btn" (click)="logout()">Logout</button>
+    </ng-container>
+
+    <!-- Bouton Connexion si non connecté -->
+    <ng-template #notLoggedIn>
+      <button class="nav-btn" (click)="openConnexionDialog()">Connexion</button>
+    </ng-template>
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+.orders-container {
+  margin-top: 20px;
+}
+
+.book-card {
+  cursor: default;
+}
+
+.book-card img {
+  height: 200px;
+  object-fit: cover;
+}
+/* src/app/features/my-orders/my-orders.component.css */
+.orders-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  /* Rendre le div sticky */
+  position: sticky;
+  top: 10px; /* distance depuis le haut de la fenêtre */
+  padding: 10px 0;
+  z-index: 1000; /* pour qu'il soit au-dessus des autres éléments */
+}

@@ -1,0 +1,37 @@
+<h2>Mes commandes 📚</h2>
+
+<!-- 🔥 Boutons Annuler + Confirmer -->
+<div *ngIf="orders.length > 0" class="orders-buttons">
+  <button mat-raised-button color="warn" (click)="cancelOrders()">
+    Annuler
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="isSending"
+    (click)="confirmOrders()"
+  >
+    {{ isSending ? "Envoi..." : "Confirmer" }}
+  </button>
+</div>
+
+<!-- Aucun livre -->
+<div *ngIf="orders.length === 0">
+  <p>Vous n'avez encore emprunté aucun livre.</p>
+</div>
+
+<!-- Liste des livres -->
+<div class="orders-container" *ngIf="orders.length > 0">
+  <mat-grid-list cols="3" gutterSize="16px" rowHeight="380px">
+    <mat-grid-tile *ngFor="let book of orders">
+      <mat-card class="book-card">
+        <img mat-card-image [src]="book.image" alt="{{ book.title }}" />
+        <mat-card-content>
+          <h3>{{ book.title }}</h3>
+          <p class="author">Auteur : {{ book.author }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

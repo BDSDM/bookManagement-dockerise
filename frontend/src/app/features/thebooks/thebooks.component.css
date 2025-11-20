@@ -1,0 +1,177 @@
+/* ======= Message de bienvenue ======= */
+.book-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔴 Livre indisponible */
+.book-card.unavailable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+img.disabled {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.copies .no-copies {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.snackbar-success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.snackbar-error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.snackbar-warning {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.username {
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #f7f9fc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 60px auto 20px auto;
+}
+
+.welcome-message h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.welcome-message p {
+  font-size: 15px;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* ======= Total des livres ======= */
+.total-books {
+  text-align: center;
+  margin: 10px 0 40px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.total-books span {
+  font-weight: bold;
+  color: #4caf50;
+}
+
+/* ======= Conteneur principal ======= */
+.books-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+.orders-button-container {
+  position: sticky;
+  top: 10px; /* distance depuis le haut de la fenêtre */
+  display: flex;
+  justify-content: flex-end; /* aligner à droite */
+  z-index: 1000;
+  padding: 5px 0;
+}
+
+/* ======= Grille responsive ======= */
+mat-grid-list {
+  width: 100%;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(4, 250px);
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  mat-grid-list {
+    grid-template-columns: repeat(3, 250px);
+  }
+}
+
+@media (max-width: 900px) {
+  mat-grid-list {
+    grid-template-columns: repeat(2, 250px);
+  }
+}
+
+@media (max-width: 600px) {
+  mat-grid-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======= Carte livre ======= */
+.book-card {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  margin-bottom: 16px;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ======= Image ======= */
+.book-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #f5f5f5;
+}
+
+/* ======= Contenu ======= */
+mat-card-content {
+  flex-grow: 1;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+mat-card-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+mat-card-content .author {
+  font-size: 0.9rem;
+  color: #666;
+}

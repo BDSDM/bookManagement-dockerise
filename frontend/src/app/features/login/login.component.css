@@ -1,0 +1,139 @@
+/* Container général → invisible, sert juste à centrer */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Carte du formulaire */
+.login-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  padding: 25px 20px;
+  position: relative;
+  z-index: 2; /* au-dessus du container */
+  box-sizing: border-box;
+  width: 100%;
+  height: 470px;
+}
+
+/* Bouton de fermeture */
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+}
+
+/* Titres */
+.login-title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+}
+
+.login-subtitle {
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Formulaire */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Champs de saisie */
+mat-form-field.full-width {
+  width: 100%;
+}
+
+mat-form-field input.mat-input-element {
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  background-color: #f7f9fc;
+  border: 1px solid #cbd5e0;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+mat-form-field input.mat-input-element:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* Bouton de connexion */
+.login-button {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  height: 40px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #2563eb;
+}
+
+.login-button:disabled {
+  background-color: #cbd5e1; /* grisâtre si form invalide */
+  color: #f8fafc;
+  cursor: not-allowed;
+}
+
+/* Liens */
+.login-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.login-links a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.login-links a:hover {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+/* Message d'erreur */
+.error-message {
+  color: #e53e3e;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Icône */
+mat-icon {
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 18px 15px;
+    max-width: 90%;
+    border-radius: 8px;
+  }
+  .login-title {
+    font-size: 18px;
+  }
+}

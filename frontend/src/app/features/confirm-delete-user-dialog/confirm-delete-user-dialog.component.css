@@ -1,0 +1,28 @@
+mat-dialog-content {
+  font-size: 16px;
+  color: #333;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+button[mat-stroked-button] {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+button[mat-flat-button] {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  background: #e53935;
+  color: white;
+}
+
+button[mat-flat-button]:hover {
+  background: #c62828;
+}

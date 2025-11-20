@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ConfirmDeleteUserDialogComponent } from './confirm-delete-user-dialog.component';
+
+describe('ConfirmDeleteUserDialogComponent', () => {
+  let component: ConfirmDeleteUserDialogComponent;
+  let fixture: ComponentFixture<ConfirmDeleteUserDialogComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ConfirmDeleteUserDialogComponent]
+    });
+    fixture = TestBed.createComponent(ConfirmDeleteUserDialogComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

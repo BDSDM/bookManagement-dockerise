@@ -1,0 +1,74 @@
+<h2 mat-dialog-title>Modifier l'utilisateur</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSave()" mat-dialog-content>
+  <!-- Champ Nom -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error
+      *ngIf="
+        form.controls['name'].hasError('required') &&
+        form.controls['name'].touched
+      "
+    >
+      Nom requis
+    </mat-error>
+    <mat-error
+      *ngIf="
+        form.controls['name'].hasError('minlength') &&
+        form.controls['name'].touched
+      "
+    >
+      Minimum 3 caractères
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Champ Email -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error
+      *ngIf="
+        form.controls['email'].hasError('required') &&
+        form.controls['email'].touched
+      "
+    >
+      Email requis
+    </mat-error>
+    <mat-error
+      *ngIf="
+        form.controls['email'].hasError('email') &&
+        form.controls['email'].touched
+      "
+    >
+      Format d'email invalide
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Champ Rôle -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Rôle</mat-label>
+    <input matInput formControlName="role" />
+    <mat-error
+      *ngIf="
+        form.controls['role'].hasError('required') &&
+        form.controls['role'].touched
+      "
+    >
+      Rôle requis
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<!-- Boutons -->
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="form.invalid"
+    (click)="onSave()"
+  >
+    Enregistrer
+  </button>
+</mat-dialog-actions>

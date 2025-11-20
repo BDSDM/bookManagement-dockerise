@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Confirmer la suppression</h2>
+
+<mat-dialog-content>
+  <p>
+    Êtes-vous sûr de vouloir supprimer l'utilisateur
+    <strong>{{ data.name }}</strong> ?
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" (click)="onCancel()">Annuler</button>
+  <button mat-flat-button color="primary" (click)="onConfirm()">
+    Supprimer
+  </button>
+</mat-dialog-actions>

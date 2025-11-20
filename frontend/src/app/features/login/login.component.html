@@ -1,0 +1,121 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <!-- Bouton de fermeture en haut à droite -->
+    <button
+      mat-icon-button
+      color="warn"
+      mat-dialog-close
+      class="close-button"
+      aria-label="Fermer"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- Titres -->
+    <h2 class="login-title">Connexion à votre compte</h2>
+    <p class="login-subtitle">
+      Veuillez entrer vos identifiants pour continuer
+    </p>
+
+    <!-- Formulaire de connexion -->
+    <form
+      (ngSubmit)="onSubmit()"
+      #loginForm="ngForm"
+      class="login-form"
+      autocomplete="off"
+    >
+      <!-- Champs leurres cachés pour empêcher l’autoremplissage -->
+      <input type="text" style="display: none" />
+      <input type="password" style="display: none" />
+
+      <!-- Champ Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="user_email"
+          [(ngModel)]="email"
+          #emailInput="ngModel"
+          required
+          placeholder="exemple@domaine.com"
+          autocomplete="off"
+          [pattern]="emailPattern"
+        />
+
+        <!-- Message d'erreur : champ requis -->
+        <mat-error
+          *ngIf="emailInput.errors?.['required'] && (emailInput.touched || loginForm.submitted)"
+        >
+          Ce champ est requis
+        </mat-error>
+
+        <!-- Message d'erreur : format invalide -->
+        <mat-error
+          *ngIf="emailInput.errors?.['pattern'] && (emailInput.touched || loginForm.submitted)"
+        >
+          Format invalide
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Champ Mot de passe -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Mot de passe</mat-label>
+        <input
+          matInput
+          [type]="showPassword ? 'text' : 'password'"
+          name="user_password"
+          [(ngModel)]="password"
+          #passwordInput="ngModel"
+          required
+          placeholder="Votre mot de passe"
+          autocomplete="new-password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="showPassword = !showPassword"
+          [attr.aria-label]="'Afficher ou masquer le mot de passe'"
+        >
+          <mat-icon>{{
+            showPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        <!-- Message d'erreur -->
+        <mat-error
+          *ngIf="
+            passwordInput.invalid &&
+            (passwordInput.touched || loginForm.submitted)
+          "
+        >
+          Ce champ est requis
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Bouton de connexion -->
+      <button
+        mat-raised-button
+        color="primary"
+        class="full-width login-button"
+        type="submit"
+        [disabled]="!loginForm.form.valid || isSubmitting"
+      >
+        {{ isSubmitting ? "Envoi..." : "Se connecter" }}
+      </button>
+    </form>
+
+    <!-- Liens utiles -->
+    <div class="login-links">
+      <a (click)="openRegisterDialog()" class="link">
+        Pas encore membre ? Inscrivez-vous
+      </a>
+      <a (click)="changePassword()" class="link">Mot de passe oublié ?</a>
+    </div>
+
+    <!-- Message d'erreur serveur -->
+    <div *ngIf="loginError" class="error-message">
+      ⚠ Identifiant ou mot de passe incorrect.
+    </div>
+  </mat-card>
+</div>

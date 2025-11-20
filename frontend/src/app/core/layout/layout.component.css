@@ -1,0 +1,26 @@
+/* Conteneur principal : occupe toute la hauteur visible */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* toute la fenêtre */
+  margin: 0;
+}
+
+/* Zone centrale (le contenu de la vitrine) */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* empile verticalement */
+  background-color: #f9f9f9;
+  overflow-y: auto; /* scroll si contenu trop grand */
+  padding: 1rem; /* optionnel, espace intérieur */
+}
+
+/* Navbar et footer toujours visibles */
+app-navbar {
+  flex-shrink: 0; /* empêche de rétrécir */
+}
+
+app-footer {
+  flex-shrink: 0;
+}
