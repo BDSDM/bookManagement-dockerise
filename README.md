@@ -58,8 +58,4 @@ docker compose --env-file app.env up -d
 
 ---
 
-Ce README correspond exactement à ton **modèle Burger Management**, mais pour ton projet **Book Management** et avec le bon repository GitHub.
 
-Si tu veux, je peux maintenant te préparer **une version enrichie avec la structure des dossiers backend/frontend et les fichiers essentiels** pour que ton README soit complet et professionnel.
-
-Veux‑tu que je fasse ça ?
